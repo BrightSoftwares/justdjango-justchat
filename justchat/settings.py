@@ -3,7 +3,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9nneu#^7_aai*(#(6_qiihu-^k-+%a86&vjh=_i9#(c4^8s51n'
 DEBUG = True
-ALLOWED_HOSTS = ['justdjango-chat.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', 'justdjango-chat.herokuapp.com', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -62,7 +62,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [('redis-dev', 6379)],
         },
     },
 }
@@ -105,7 +105,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     ),
 }
-CORS_ORIGIN_WHITELIST = ('localhost:3000')
+CORS_ORIGIN_WHITELIST = ('localhost:3001')
 ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = 'none'

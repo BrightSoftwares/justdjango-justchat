@@ -1,0 +1,14 @@
+FROM python:3.9-buster
+LABEL maintainer="Full Bright <full3right@gmail.com>"
+
+RUN apt-get update && apt-get install gettext -y
+
+WORKDIR /app/
+COPY Pipfile /app/
+RUN pip install pipenv
+RUN pipenv --python 3.9
+
+#RUN pipenv install
+#CMD pipenv run python manage.py runserver 0.0.0.0:8004
+
+
